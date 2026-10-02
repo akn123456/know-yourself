@@ -293,24 +293,33 @@ function renderQuestion() {
   });
 
   document.getElementById("feedback").classList.remove("show");
+  document.getElementById("feedback").innerHTML = "";
   selectedOption = null;
 }
 
 // ============================================
-// ✅ PILIH OPSI
+// ✅ PILIH OPSI (dengan tombol LANJUT)
 // ============================================
 function selectOption(btn, index) {
-  document.querySelectorAll(".option").forEach(o => o.classList.remove("selected"));
+  document.querySelectorAll(".option").forEach(o => {
+    o.classList.remove("selected");
+    o.style.pointerEvents = "none";
+  });
   btn.classList.add("selected");
   selectedOption = index;
 
   user.answers[currentLevel][currentQuestion] = index;
 
   const fb = document.getElementById("feedback");
-  fb.textContent = encouragements[Math.floor(Math.random() * encouragements.length)];
+  fb.innerHTML = `
+    <div style="margin-bottom:10px;">
+      ${encouragements[Math.floor(Math.random() * encouragements.length)]}
+    </div>
+    <button class="btn-next-q" onclick="nextQuestion()">
+      LANJUT <span class="btn-emoji">→</span>
+    </button>
+  `;
   fb.classList.add("show");
-
-  setTimeout(() => { nextQuestion(); }, 1200);
 }
 
 // ============================================
