@@ -5,134 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Know Yourself — A Little Step to a Better You</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- ✨ Sparkle background -->
-  <div class="sparkles" aria-hidden="true">
-    <span style="left:8%;  top:12%; animation-delay:0s;">✦</span>
-    <span style="left:22%; top:70%; animation-delay:1.2s;">✧</span>
-    <span style="left:45%; top:20%; animation-delay:0.6s;">✦</span>
-    <span style="left:68%; top:80%; animation-delay:1.8s;">✧</span>
-    <span style="left:85%; top:30%; animation-delay:0.3s;">✦</span>
-    <span style="left:92%; top:65%; animation-delay:2.1s;">✧</span>
-    <span style="left:55%; top:88%; animation-delay:1.5s;">✦</span>
-    <span style="left:15%; top:45%; animation-delay:2.4s;">✧</span>
-  </div>
-
   <!-- 🎵 Musik Latar -->
   <audio id="bgMusic" loop>
-    <source src="sound.mpeg" type="audio/mpeg" />
+    <source src="musik.mp3" type="audio/mpeg" />
   </audio>
 
   <!-- 🎵 Tombol Musik -->
-  <button id="musicToggle" class="icon-btn music-btn" title="Musik On/Off">🎵</button>
+  <button id="musicToggle" class="music-btn" title="Musik On/Off">🎵</button>
 
   <!-- 📖 Tombol Panduan -->
-  <button id="guideToggle" class="icon-btn guide-btn" title="Panduan"
-          aria-label="Buka panduan" aria-expanded="false" aria-controls="guidePanel">📖</button>
+  <button id="guideToggle" class="guide-btn" title="Panduan">📖</button>
 
   <!-- 📖 Panel Panduan -->
-  <div id="guidePanel" class="guide-panel" role="dialog"
-       aria-label="Panduan Penggunaan" aria-hidden="true">
+  <div id="guidePanel" class="guide-panel">
     <div class="guide-header">
       <h3>📖 Panduan Penggunaan</h3>
-      <button class="guide-close" onclick="toggleGuide()" aria-label="Tutup panduan">✕</button>
+      <button class="guide-close" onclick="toggleGuide()">✕</button>
     </div>
     <div class="guide-body">
+      <h4>🌸 1. Mulai Perjalanan</h4>
+      <p>Klik tombol <strong>"MULAI PERJALANAN"</strong> di halaman beranda untuk memulai.</p>
 
-      <div class="guide-step">
-        <div class="guide-step-num">1</div>
-        <div class="guide-step-content">
-          <h4>🌸 Mulai Perjalanan</h4>
-          <p>Klik tombol <strong>"MULAI PERJALANAN"</strong> di halaman beranda untuk memulai petualanganmu.</p>
-        </div>
-      </div>
+      <h4>🌷 2. Isi Profil Singkat</h4>
+      <p>Isi nama, nama panggilan, hobi, hal yang disukai, dan harapanmu. Tidak perlu jawaban sempurna — cukup jadi dirimu sendiri. 💗</p>
 
-      <div class="guide-step">
-        <div class="guide-step-num">2</div>
-        <div class="guide-step-content">
-          <h4>🌷 Isi Profil Singkat</h4>
-          <p>Isi nama, panggilan, hobi, hal yang disukai, dan harapanmu. Tidak perlu sempurna — cukup jadi dirimu sendiri. 💗</p>
-        </div>
-      </div>
+      <h4>💎 3. Kumpulkan Gems</h4>
+      <p>Setiap kali menyelesaikan satu level, kamu akan mendapatkan <strong>gems</strong> sebagai hadiah. Total ada 4 level, masing-masing 5 pertanyaan.</p>
 
-      <div class="guide-step">
-        <div class="guide-step-num">3</div>
-        <div class="guide-step-content">
-          <h4>💎 Kumpulkan Gems</h4>
-          <p>Setiap level selesai, kamu dapat <strong>gems</strong>. Total ada 4 level, masing-masing 5 pertanyaan.</p>
-        </div>
-      </div>
+      <h4>🌱 4. Naik Level</h4>
+      <p>Setelah menyelesaikan satu level, kamu akan otomatis naik ke level berikutnya. Ada animasi & kata-kata penyemangat di setiap jawaban.</p>
 
-      <div class="guide-step">
-        <div class="guide-step-num">4</div>
-        <div class="guide-step-content">
-          <h4>🌱 Naik Level</h4>
-          <p>Setelah selesai satu level, kamu otomatis naik ke level berikutnya dengan animasi & kata penyemangat.</p>
-        </div>
-      </div>
+      <h4>🪞 5. Refleksi Diri</h4>
+      <p>Setelah semua level selesai, kamu akan diajak menjawab 5 pertanyaan refleksi terbuka. Jawab dengan jujur ya.</p>
 
-      <div class="guide-step">
-        <div class="guide-step-num">5</div>
-        <div class="guide-step-content">
-          <h4>🪞 Refleksi Diri</h4>
-          <p>Setelah semua level, jawab 5 pertanyaan refleksi terbuka. Jawab dengan jujur ya.</p>
-        </div>
-      </div>
+      <h4>💌 6. Lihat Hasil Perjalanan</h4>
+      <p>Di akhir, kamu bisa melihat rangkuman perjalananmu — profil, gems, level, dan refleksi diri.</p>
 
-      <div class="guide-step">
-        <div class="guide-step-num">6</div>
-        <div class="guide-step-content">
-          <h4>💌 Lihat Hasil</h4>
-          <p>Di akhir, lihat rangkuman perjalananmu + <strong>analisis kepribadian</strong> berdasarkan jawabanmu.</p>
-        </div>
-      </div>
+      <h4>🎵 7. Musik Latar</h4>
+      <p>Klik tombol 🎵 di pojok kanan atas untuk menyalakan/mematikan musik.</p>
 
-      <div class="guide-step">
-        <div class="guide-step-num">7</div>
-        <div class="guide-step-content">
-          <h4>🎵 Musik Latar</h4>
-          <p>Klik tombol 🎵 di pojok kanan atas untuk menyalakan atau mematikan musik.</p>
-        </div>
-      </div>
+      <h4>🔄 8. Ulangi Perjalanan</h4>
+      <p>Di halaman hasil, ada tombol <strong>"Ulangi Perjalanan"</strong> kalau kamu mau mulai dari awal.</p>
 
-      <div class="guide-step">
-        <div class="guide-step-num">8</div>
-        <div class="guide-step-content">
-          <h4>🔄 Ulangi Perjalanan</h4>
-          <p>Di halaman akhir, ada tombol <strong>"Mulai Lagi"</strong> kalau kamu mau mengulang dari awal.</p>
-        </div>
-      </div>
-
-      <div class="guide-footer">
-        <span class="footer-emoji">💗</span>
-        Selamat menikmati perjalananmu!
-      </div>
-
+      <p class="guide-footer">💗 Selamat menikmati perjalanan mengenal dirimu!</p>
     </div>
   </div>
 
   <!-- 🌷 HALAMAN BERANDA -->
   <section id="page-home" class="page active">
     <div class="home-container">
-      <div class="logo-wrap">
-        <img src="logo.png" alt="Know Yourself Logo" class="logo-big" />
-      </div>
-      <button class="btn-primary" onclick="goToIntro()">
-        MULAI PERJALANAN <span class="btn-emoji">🌸</span>
-      </button>
-      <p class="home-hint">✨ Perjalanan singkat untuk mengenal dirimu lebih jauh ✨</p>
+      <img src="logo.png" alt="Know Yourself Logo" class="logo-big" />
+      <button class="btn-primary" onclick="goToIntro()">MULAI PERJALANAN 🌸</button>
     </div>
   </section>
 
   <!-- 🌷 HALAMAN PERKENALAN -->
   <section id="page-intro" class="page">
     <div class="card">
-      <div class="card-deco">🌸</div>
       <h2>✨ Sebelum memulai perjalananmu...</h2>
       <p class="sub">Yuk, kenalan sedikit. Tidak perlu jawaban sempurna. Cukup jadi dirimu sendiri. 💗</p>
 
@@ -162,26 +95,21 @@
       <label>💌 Apa harapanmu setelah menyelesaikan perjalanan ini?</label>
       <textarea id="inputHope" placeholder="Tulis harapanmu di sini..."></textarea>
 
-      <button class="btn-primary" onclick="submitIntro()">
-        MULAI PERJALANAN <span class="btn-emoji">🌸</span>
-      </button>
+      <button class="btn-primary" onclick="submitIntro()">🌸 MULAI PERJALANAN</button>
     </div>
   </section>
 
   <!-- 🌷 HALAMAN SAMBUTAN -->
   <section id="page-welcome" class="page">
     <div class="card center">
-      <div class="card-deco">🌷</div>
       <h2 id="welcomeTitle">🌷 Hai!</h2>
       <p id="welcomeText">Senang bisa mengenalmu.</p>
       <div class="stats">
         <div class="stat">💎 <span id="gemsDisplay">0</span> Gems</div>
         <div class="stat">🌱 Level <span id="levelDisplay">1</span></div>
       </div>
-      <p class="welcome-ask"><strong>Siap memulai?</strong></p>
-      <button class="btn-primary" onclick="startLevel(1)">
-        AYO MULAI <span class="btn-emoji">→</span>
-      </button>
+      <p><strong>Siap memulai?</strong></p>
+      <button class="btn-primary" onclick="startLevel(1)">AYO MULAI →</button>
     </div>
   </section>
 
@@ -201,22 +129,19 @@
   <!-- 🌷 HALAMAN TRANSISI LEVEL -->
   <section id="page-transition" class="page">
     <div class="card center">
-      <div class="card-deco">🎉</div>
       <h2 id="transitionTitle">🎉 Keren!</h2>
       <p id="transitionText"></p>
       <div class="stats">
         <div class="stat">💎 <span id="gemsDisplay2">0</span> Gems</div>
         <div class="stat">🌱 Level <span id="levelDisplay2">1</span></div>
       </div>
-      <button class="btn-primary" id="nextLevelBtn" onclick="nextLevel()">
-      </button>
+      <button class="btn-primary" id="nextLevelBtn" onclick="nextLevel()">LANJUT →</button>
     </div>
   </section>
 
   <!-- 🌷 HALAMAN REFLEKSI -->
   <section id="page-reflection" class="page">
     <div class="card">
-      <div class="card-deco">🪞</div>
       <h2>🪞 Refleksi Diri</h2>
       <p class="sub">Jawab dengan jujur ya. Tidak ada jawaban benar atau salah. 💗</p>
 
@@ -235,46 +160,16 @@
       <label>5. Pesan untuk dirimu sendiri saat ini?</label>
       <textarea id="ref5"></textarea>
 
-      <button class="btn-primary" onclick="submitReflection()">
-        SELESAIKAN PERJALANAN <span class="btn-emoji">💌</span>
-      </button>
+      <button class="btn-primary" onclick="submitReflection()">SELESAIKAN PERJALANAN 💌</button>
     </div>
   </section>
 
   <!-- 🌷 HALAMAN HASIL -->
   <section id="page-result" class="page">
     <div class="card">
-      <div class="card-deco">💌</div>
-      <h2 style="text-align:center;">💌 Perjalananmu</h2>
+      <h2>💌 Perjalananmu</h2>
       <div id="resultContent"></div>
-      <button class="btn-primary" onclick="showPage('page-closing')">
-        LANJUT <span class="btn-emoji">💜</span>
-      </button>
-    </div>
-  </section>
-
-  <!-- 🌷 HALAMAN CLOSING -->
-  <section id="page-closing" class="page">
-    <div class="card center">
-      <div class="closing-heart">💜</div>
-      <h2 class="closing-title">
-        Terima kasih sudah<br>meluangkan waktu untuk dirimu.
-      </h2>
-      <p class="closing-text">
-        Perjalanan mengenal diri tidak berhenti di sini.
-        Kadang jawabannya tidak harus langsung ditemukan —
-        cukup didengarkan.
-      </p>
-      <p class="closing-quote">
-        "Mungkin akhir-akhir ini kamu tidak membutuhkan nasihat.<br>
-        Kamu mungkin hanya membutuhkan seseorang yang mau mendengarkan."
-      </p>
-      <div class="btn-row" style="justify-content: center; margin-top: 30px;">
-        <button class="btn-primary" onclick="restartJourney()">
-          MULAI LAGI <span class="btn-emoji">🔄</span>
-        </button>
-      </div>
-      <div class="signature">🌷 Kenali Dirimu — Perjalanan Kecil ke Dalam</div>
+      <button class="btn-primary" onclick="restartJourney()">🔄 Ulangi Perjalanan</button>
     </div>
   </section>
 
