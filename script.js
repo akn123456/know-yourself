@@ -1,8 +1,7 @@
 /* ============================================================
-   KNOW YOURSELF — Script Utama
+   KNOW YOURSELF
    ============================================================ */
 
-// ============ STATE GLOBAL ============
 const state = {
   nama: "",
   panggilan: "",
@@ -15,216 +14,75 @@ const state = {
   level: 1,
   currentLevel: 1,
   currentQuestion: 0,
-  answers: {}, // menyimpan jawaban tiap pertanyaan
+  answers: {},
   refleksi: {},
   musicOn: false,
 };
 
-// ============ DATA LEVEL & PERTANYAAN ============
+// ============ DATA LEVEL ============
 const LEVELS = {
   1: {
     title: "Level 1 — Kenali Perasaanmu 💗",
     questions: [
-      {
-        q: "Saat suasana hatimu sedang kurang baik, biasanya kamu akan...",
-        options: [
-          "A. Memilih sendiri sampai merasa lebih tenang",
-          "B. Bercerita kepada orang yang dipercaya",
-          "C. Melakukan kegiatan yang disukai untuk mengalihkan pikiran",
-          "D. Tetap melakukan aktivitas seperti biasa",
-        ],
-      },
-      {
-        q: "Ketika mendapatkan pujian dari orang lain, biasanya kamu merasa...",
-        options: [
-          "A. Senang dan semakin percaya diri",
-          "B. Malu, tetapi sebenarnya merasa senang",
-          "C. Biasa saja karena tidak terlalu memikirkannya",
-          "D. Bingung harus merespons seperti apa",
-        ],
-      },
-      {
-        q: "Hal kecil yang paling mudah membuatmu merasa bahagia adalah...",
-        options: [
-          "A. Mendapat perhatian dari orang lain",
-          "B. Menghabiskan waktu dengan orang yang disukai",
-          "C. Berhasil menyelesaikan sesuatu",
-          "D. Melakukan hal yang memang aku sukai",
-        ],
-      },
-      {
-        q: "Ketika seseorang membuatmu kecewa, biasanya kamu...",
-        options: [
-          "A. Langsung membicarakannya",
-          "B. Memendamnya terlebih dahulu",
-          "C. Mencoba memahami alasan orang tersebut",
-          "D. Menjauh sebentar untuk menenangkan diri",
-        ],
-      },
-      {
-        q: "Kalau sedang merasa lelah secara emosional, hal yang paling kamu butuhkan adalah...",
-        options: [
-          "A. Waktu untuk sendiri",
-          "B. Seseorang untuk mendengarkan ceritaku",
-          "C. Istirahat dan melakukan hal yang menyenangkan",
-          "D. Dukungan dan semangat dari orang terdekat",
-        ],
-      },
+      { q: "Saat suasana hatimu sedang kurang baik, biasanya kamu akan...",
+        options: ["A. Memilih sendiri sampai merasa lebih tenang", "B. Bercerita kepada orang yang dipercaya", "C. Melakukan kegiatan yang disukai untuk mengalihkan pikiran", "D. Tetap melakukan aktivitas seperti biasa"] },
+      { q: "Ketika mendapatkan pujian dari orang lain, biasanya kamu merasa...",
+        options: ["A. Senang dan semakin percaya diri", "B. Malu, tetapi sebenarnya merasa senang", "C. Biasa saja karena tidak terlalu memikirkannya", "D. Bingung harus merespons seperti apa"] },
+      { q: "Hal kecil yang paling mudah membuatmu merasa bahagia adalah...",
+        options: ["A. Mendapat perhatian dari orang lain", "B. Menghabiskan waktu dengan orang yang disukai", "C. Berhasil menyelesaikan sesuatu", "D. Melakukan hal yang memang aku sukai"] },
+      { q: "Ketika seseorang membuatmu kecewa, biasanya kamu...",
+        options: ["A. Langsung membicarakannya", "B. Memendamnya terlebih dahulu", "C. Mencoba memahami alasan orang tersebut", "D. Menjauh sebentar untuk menenangkan diri"] },
+      { q: "Kalau sedang merasa lelah secara emosional, hal yang paling kamu butuhkan adalah...",
+        options: ["A. Waktu untuk sendiri", "B. Seseorang untuk mendengarkan ceritaku", "C. Istirahat dan melakukan hal yang menyenangkan", "D. Dukungan dan semangat dari orang terdekat"] },
     ],
   },
   2: {
     title: "Level 2 — Kenali Dirimu 🌷",
     questions: [
-      {
-        q: "Ketika harus memilih sesuatu yang penting, kamu biasanya...",
-        options: [
-          "A. Mengikuti apa yang menurutku benar",
-          "B. Mempertimbangkan pendapat orang lain",
-          "C. Memikirkan kelebihan dan kekurangannya terlebih dahulu",
-          "D. Mengikuti apa yang paling sesuai dengan perasaanku",
-        ],
-      },
-      {
-        q: "Kalau mendapat kesempatan mencoba sesuatu yang baru, kamu akan...",
-        options: [
-          "A. Langsung mencobanya",
-          "B. Memikirkannya terlebih dahulu",
-          "C. Mencari tahu lebih banyak tentang hal tersebut",
-          "D. Menunggu sampai merasa benar-benar siap",
-        ],
-      },
-      {
-        q: "Menurutmu, hal yang paling menggambarkan dirimu adalah...",
-        options: [
-          "A. Suka membantu orang lain",
-          "B. Suka mencoba hal-hal baru",
-          "C. Suka membuat atau menciptakan sesuatu",
-          "D. Suka memikirkan sesuatu secara mendalam",
-        ],
-      },
-      {
-        q: "Ketika orang lain memiliki pendapat yang berbeda denganmu, kamu biasanya...",
-        options: [
-          "A. Mendengarkan dan mencoba memahaminya",
-          "B. Menjelaskan pendapatku dengan baik",
-          "C. Memilih untuk tidak memperpanjang perbedaan",
-          "D. Memikirkan kembali apakah pendapatku memang tepat",
-        ],
-      },
-      {
-        q: "Hal yang paling ingin kamu kenali lebih jauh dari dirimu adalah...",
-        options: [
-          "A. Kelebihan yang aku miliki",
-          "B. Minat dan hal yang aku sukai",
-          "C. Kekurangan yang ingin aku perbaiki",
-          "D. Tujuan dan keinginan untuk masa depan",
-        ],
-      },
+      { q: "Ketika harus memilih sesuatu yang penting, kamu biasanya...",
+        options: ["A. Mengikuti apa yang menurutku benar", "B. Mempertimbangkan pendapat orang lain", "C. Memikirkan kelebihan dan kekurangannya terlebih dahulu", "D. Mengikuti apa yang paling sesuai dengan perasaanku"] },
+      { q: "Kalau mendapat kesempatan mencoba sesuatu yang baru, kamu akan...",
+        options: ["A. Langsung mencobanya", "B. Memikirkannya terlebih dahulu", "C. Mencari tahu lebih banyak tentang hal tersebut", "D. Menunggu sampai merasa benar-benar siap"] },
+      { q: "Menurutmu, hal yang paling menggambarkan dirimu adalah...",
+        options: ["A. Suka membantu orang lain", "B. Suka mencoba hal-hal baru", "C. Suka membuat atau menciptakan sesuatu", "D. Suka memikirkan sesuatu secara mendalam"] },
+      { q: "Ketika orang lain memiliki pendapat yang berbeda denganmu, kamu biasanya...",
+        options: ["A. Mendengarkan dan mencoba memahaminya", "B. Menjelaskan pendapatku dengan baik", "C. Memilih untuk tidak memperpanjang perbedaan", "D. Memikirkan kembali apakah pendapatku memang tepat"] },
+      { q: "Hal yang paling ingin kamu kenali lebih jauh dari dirimu adalah...",
+        options: ["A. Kelebihan yang aku miliki", "B. Minat dan hal yang aku sukai", "C. Kekurangan yang ingin aku perbaiki", "D. Tujuan dan keinginan untuk masa depan"] },
     ],
   },
   3: {
     title: "Level 3 — Kenali Cara Kamu Menghadapi Situasi 🌱",
     questions: [
-      {
-        q: "Saat menghadapi masalah, hal pertama yang biasanya kamu lakukan adalah...",
-        options: [
-          "A. Mencari solusi sendiri",
-          "B. Bercerita kepada orang yang dipercaya",
-          "C. Menenangkan diri terlebih dahulu",
-          "D. Mencari informasi atau saran tentang masalah tersebut",
-        ],
-      },
-      {
-        q: "Ketika mengalami kegagalan, biasanya kamu...",
-        options: [
-          "A. Mencoba lagi",
-          "B. Merasa kecewa terlebih dahulu, lalu bangkit kembali",
-          "C. Mencari tahu apa yang menyebabkan kegagalan",
-          "D. Membutuhkan waktu sebelum mencoba lagi",
-        ],
-      },
-      {
-        q: "Kalau tugas atau pekerjaan terasa sulit, kamu biasanya...",
-        options: [
-          "A. Mengerjakannya sedikit demi sedikit",
-          "B. Meminta bantuan jika benar-benar membutuhkannya",
-          "C. Mencari cara lain agar lebih mudah",
-          "D. Beristirahat sebentar lalu melanjutkannya",
-        ],
-      },
-      {
-        q: "Ketika merasa takut melakukan kesalahan, kamu biasanya...",
-        options: [
-          "A. Tetap mencoba meskipun merasa takut",
-          "B. Memastikan semuanya terlebih dahulu",
-          "C. Meminta pendapat orang yang dipercaya",
-          "D. Menunggu sampai merasa lebih yakin",
-        ],
-      },
-      {
-        q: "Saat menghadapi sesuatu yang tidak sesuai dengan rencana, kamu biasanya...",
-        options: [
-          "A. Mencoba membuat rencana baru",
-          "B. Menerima keadaan dan menyesuaikan diri",
-          "C. Mencari tahu apa yang masih bisa dilakukan",
-          "D. Membutuhkan waktu untuk menenangkan diri",
-        ],
-      },
+      { q: "Saat menghadapi masalah, hal pertama yang biasanya kamu lakukan adalah...",
+        options: ["A. Mencari solusi sendiri", "B. Bercerita kepada orang yang dipercaya", "C. Menenangkan diri terlebih dahulu", "D. Mencari informasi atau saran tentang masalah tersebut"] },
+      { q: "Ketika mengalami kegagalan, biasanya kamu...",
+        options: ["A. Mencoba lagi", "B. Merasa kecewa terlebih dahulu, lalu bangkit kembali", "C. Mencari tahu apa yang menyebabkan kegagalan", "D. Membutuhkan waktu sebelum mencoba lagi"] },
+      { q: "Kalau tugas atau pekerjaan terasa sulit, kamu biasanya...",
+        options: ["A. Mengerjakannya sedikit demi sedikit", "B. Meminta bantuan jika benar-benar membutuhkannya", "C. Mencari cara lain agar lebih mudah", "D. Beristirahat sebentar lalu melanjutkannya"] },
+      { q: "Ketika merasa takut melakukan kesalahan, kamu biasanya...",
+        options: ["A. Tetap mencoba meskipun merasa takut", "B. Memastikan semuanya terlebih dahulu", "C. Meminta pendapat orang yang dipercaya", "D. Menunggu sampai merasa lebih yakin"] },
+      { q: "Saat menghadapi sesuatu yang tidak sesuai dengan rencana, kamu biasanya...",
+        options: ["A. Mencoba membuat rencana baru", "B. Menerima keadaan dan menyesuaikan diri", "C. Mencari tahu apa yang masih bisa dilakukan", "D. Membutuhkan waktu untuk menenangkan diri"] },
     ],
   },
   4: {
     title: "Level 4 — Kenali Potensimu ✨",
     questions: [
-      {
-        q: "Kegiatan yang paling membuatmu bersemangat adalah...",
-        options: [
-          "A. Membantu atau mendengarkan orang lain",
-          "B. Membuat sesuatu yang kreatif",
-          "C. Mempelajari hal baru",
-          "D. Menyelesaikan sesuatu yang membutuhkan ketelitian",
-        ],
-      },
-      {
-        q: "Saat mengerjakan sesuatu yang kamu sukai, kamu biasanya...",
-        options: [
-          "A. Bisa melakukannya dalam waktu yang lama",
-          "B. Merasa lebih percaya diri",
-          "C. Ingin terus belajar dan mengembangkannya",
-          "D. Merasa puas ketika berhasil menyelesaikannya",
-        ],
-      },
-      {
-        q: "Orang lain biasanya meminta bantuanmu dalam hal...",
-        options: [
-          "A. Mendengarkan cerita atau memberikan saran",
-          "B. Membuat sesuatu yang kreatif",
-          "C. Menjelaskan atau mencari informasi",
-          "D. Membantu menyelesaikan sesuatu dengan teliti",
-        ],
-      },
-      {
-        q: "Kalau diberi kesempatan mengembangkan satu kemampuan, kamu ingin mengembangkan...",
-        options: [
-          "A. Kemampuan berkomunikasi",
-          "B. Kemampuan kreativitas",
-          "C. Kemampuan berpikir dan belajar",
-          "D. Kemampuan mengatur dan menyelesaikan sesuatu",
-        ],
-      },
-      {
-        q: "Hal yang ingin kamu capai dari dirimu di masa depan adalah...",
-        options: [
-          "A. Menjadi pribadi yang lebih percaya diri",
-          "B. Mengembangkan kemampuan yang aku miliki",
-          "C. Menemukan bidang yang benar-benar sesuai denganku",
-          "D. Menjadi pribadi yang lebih mandiri dan mampu menghadapi berbagai keadaan",
-        ],
-      },
+      { q: "Kegiatan yang paling membuatmu bersemangat adalah...",
+        options: ["A. Membantu atau mendengarkan orang lain", "B. Membuat sesuatu yang kreatif", "C. Mempelajari hal baru", "D. Menyelesaikan sesuatu yang membutuhkan ketelitian"] },
+      { q: "Saat mengerjakan sesuatu yang kamu sukai, kamu biasanya...",
+        options: ["A. Bisa melakukannya dalam waktu yang lama", "B. Merasa lebih percaya diri", "C. Ingin terus belajar dan mengembangkannya", "D. Merasa puas ketika berhasil menyelesaikannya"] },
+      { q: "Orang lain biasanya meminta bantuanmu dalam hal...",
+        options: ["A. Mendengarkan cerita atau memberikan saran", "B. Membuat sesuatu yang kreatif", "C. Menjelaskan atau mencari informasi", "D. Membantu menyelesaikan sesuatu dengan teliti"] },
+      { q: "Kalau diberi kesempatan mengembangkan satu kemampuan, kamu ingin mengembangkan...",
+        options: ["A. Kemampuan berkomunikasi", "B. Kemampuan kreativitas", "C. Kemampuan berpikir dan belajar", "D. Kemampuan mengatur dan menyelesaikan sesuatu"] },
+      { q: "Hal yang ingin kamu capai dari dirimu di masa depan adalah...",
+        options: ["A. Menjadi pribadi yang lebih percaya diri", "B. Mengembangkan kemampuan yang aku miliki", "C. Menemukan bidang yang benar-benar sesuai denganku", "D. Menjadi pribadi yang lebih mandiri dan mampu menghadapi berbagai keadaan"] },
     ],
   },
 };
 
-// ============ KATA-KATA REWARD ============
 const REWARD_WORDS = [
   "Keren! Jawabanmu jujur dan bermakna. 💗",
   "Luar biasa! Kamu semakin mengenal dirimu. 🌸",
@@ -234,18 +92,30 @@ const REWARD_WORDS = [
   "Sweet! Jawabanmu berarti untuk perjalananmu. 💕",
 ];
 
-// ============ NAVIGASI PAGE ============
+// ============ NAVIGASI ============
 function showPage(id) {
   document.querySelectorAll(".page").forEach((p) => p.classList.remove("active"));
   document.getElementById(id).classList.add("active");
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-// ============ HOME → PROFIL ============
 function goToProfile() {
   showPage("page-profile");
   playMusicIfAllowed();
 }
+
+// ============ PANDUAN MODAL ============
+const guideModal = document.getElementById("guide-modal");
+document.getElementById("guide-toggle").addEventListener("click", () => {
+  guideModal.classList.toggle("hidden");
+});
+function closeGuide() {
+  guideModal.classList.add("hidden");
+}
+// Klik di luar modal untuk tutup
+guideModal.addEventListener("click", (e) => {
+  if (e.target === guideModal) guideModal.classList.add("hidden");
+});
 
 // ============ SIMPAN PROFIL ============
 function saveProfile() {
@@ -270,25 +140,17 @@ function saveProfile() {
   state.tujuan = tujuan;
   state.harapan = harapan || "-";
 
-  // Sapaan personal
   document.getElementById("greet-title").textContent = `🌷 Hai, ${state.panggilan}!`;
-  document.getElementById("greet-text").innerHTML = `
-    Senang bisa mengenalmu.<br />
-    Hari ini kita akan memulai perjalanan untuk mengenal dirimu lebih jauh. ✨
-  `;
+  document.getElementById("greet-text").innerHTML =
+    `Senang bisa mengenalmu.<br />Hari ini kita akan memulai perjalanan untuk mengenal dirimu lebih jauh. ✨`;
   document.getElementById("gems-display").textContent = state.gems;
   document.getElementById("level-display").textContent = state.level;
 
   showPage("page-greeting");
   playMusicIfAllowed();
-
-  // Jeda beberapa detik untuk membaca
-  setTimeout(() => {
-    document.getElementById("btn-ayo").classList.remove("hidden");
-  }, 4000);
 }
 
-// ============ MULAI LEVEL ============
+// ============ LEVEL ============
 function startLevel(level) {
   state.currentLevel = level;
   state.currentQuestion = 0;
@@ -301,7 +163,6 @@ function startLevel(level) {
   showPage("page-level");
 }
 
-// ============ TAMPILKAN PERTANYAAN ============
 function showQuestion() {
   const levelData = LEVELS[state.currentLevel];
   const q = levelData.questions[state.currentQuestion];
@@ -318,25 +179,20 @@ function showQuestion() {
   });
 }
 
-// ============ PILIH JAWABAN ============
 function selectAnswer(index) {
   const key = `L${state.currentLevel}Q${state.currentQuestion}`;
   state.answers[key] = index;
 
-  // Disable semua tombol
   document.querySelectorAll(".option-btn").forEach((b) => (b.disabled = true));
 
-  // Tampilkan reward popup
   const popup = document.getElementById("reward-popup");
-  const rewardText = document.getElementById("reward-text");
-  rewardText.textContent = REWARD_WORDS[Math.floor(Math.random() * REWARD_WORDS.length)];
+  document.getElementById("reward-text").textContent =
+    REWARD_WORDS[Math.floor(Math.random() * REWARD_WORDS.length)];
   popup.classList.remove("hidden");
 
-  // Tambah gems
   state.gems += 5;
   document.getElementById("gems-mini").textContent = state.gems;
 
-  // Sembunyikan popup setelah 2 detik
   setTimeout(() => {
     popup.classList.add("hidden");
     state.currentQuestion++;
@@ -350,21 +206,18 @@ function selectAnswer(index) {
   }, 2000);
 }
 
-// ============ UPDATE PROGRESS ============
 function updateProgress() {
   const total = LEVELS[state.currentLevel].questions.length;
   const percent = (state.currentQuestion / total) * 100;
   document.getElementById("progress-fill").style.width = percent + "%";
 }
 
-// ============ SELESAI LEVEL ============
 function finishLevel() {
   const nextLevel = state.currentLevel + 1;
   const title = document.getElementById("levelup-title");
   const text = document.getElementById("levelup-text");
-  const gemsReward = 25;
 
-  state.gems += gemsReward;
+  state.gems += 25;
   document.getElementById("gems-display").textContent = state.gems;
 
   if (nextLevel <= 4) {
@@ -381,21 +234,14 @@ function finishLevel() {
 
   showPage("page-levelup");
   playMusicIfAllowed();
-
-  // Jeda membaca
-  setTimeout(() => {
-    document.getElementById("btn-next-level").classList.remove("hidden");
-  }, 3500);
 }
 
-// ============ NEXT LEVEL ============
 function nextLevel() {
-  // placeholder — sudah di-handle di finishLevel
+  // sudah di-handle di finishLevel
 }
 
 // ============ REFLEKSI & HASIL ============
 function showResult() {
-  // Simpan refleksi
   state.refleksi = {
     r1: document.getElementById("ref-1").value.trim() || "-",
     r2: document.getElementById("ref-2").value.trim() || "-",
@@ -404,7 +250,6 @@ function showResult() {
     r5: document.getElementById("ref-5").value.trim() || "-",
   };
 
-  // Isi hasil
   document.getElementById("r-nama").textContent = state.nama;
   document.getElementById("r-panggilan").textContent = state.panggilan;
   document.getElementById("r-hobi").textContent = state.hobi;
@@ -416,10 +261,8 @@ function showResult() {
   document.getElementById("r-level").textContent = state.level;
   document.getElementById("r-closing-name").textContent = state.panggilan;
 
-  // Kesimpulan otomatis
   document.getElementById("result-about").innerHTML = generateAbout();
 
-  // Refleksi
   const refWrap = document.getElementById("r-refleksi");
   refWrap.innerHTML = "";
   const labels = [
@@ -439,9 +282,7 @@ function showResult() {
   playMusicIfAllowed();
 }
 
-// ============ GENERATE KESIMPULAN ============
 function generateAbout() {
-  // Analisis sederhana berdasarkan jawaban
   const answers = Object.values(state.answers);
   const counts = { A: 0, B: 0, C: 0, D: 0 };
   answers.forEach((a) => {
@@ -449,14 +290,9 @@ function generateAbout() {
     if (letter) counts[letter]++;
   });
 
-  // Tentukan dominan
-  let dominant = "A";
-  let max = 0;
+  let dominant = "A", max = 0;
   for (const k in counts) {
-    if (counts[k] > max) {
-      max = counts[k];
-      dominant = k;
-    }
+    if (counts[k] > max) { max = counts[k]; dominant = k; }
   }
 
   const descriptions = {
@@ -471,7 +307,6 @@ function generateAbout() {
     Kamu hebat dalam menjadi dirimu sendiri. Jangan lupa, kamu juga berhak untuk terus tumbuh dan berkembang. 🌱`;
 }
 
-// ============ RESTART ============
 function restart() {
   location.reload();
 }
@@ -479,6 +314,7 @@ function restart() {
 // ============ MUSIC ============
 const musicBtn = document.getElementById("music-toggle");
 const bgMusic = document.getElementById("bg-music");
+bgMusic.volume = 0.4;
 
 musicBtn.addEventListener("click", () => {
   if (state.musicOn) {
@@ -498,19 +334,16 @@ musicBtn.addEventListener("click", () => {
 });
 
 function playMusicIfAllowed() {
-  // Autoplay hanya jika user sudah berinteraksi
   if (!state.musicOn) {
     bgMusic.play().then(() => {
       musicBtn.textContent = "🎵";
       musicBtn.classList.add("playing");
       state.musicOn = true;
-    }).catch(() => {
-      // Browser blokir autoplay — abaikan
-    });
+    }).catch(() => { /* browser blokir, abaikan */ });
   }
 }
 
-// ============ FLOATING PETALS ============
+// ============ PETALS ============
 function createPetals() {
   const container = document.getElementById("petals");
   const emojis = ["🌸", "🌷", "💗", "✨", "💐", "🌺"];
