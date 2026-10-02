@@ -48,10 +48,14 @@ const levels = {
   }
 };
 
-// 💬 KATA PENYEMANGAT — HANYA 2 (tidak random)
+// 💬 KATA PENYEMANGAT
 const encouragements = [
   "Bagus banget! 🌸 Kamu semakin mengenal dirimu.",
-  "Keren! 💗 Jawabanmu jujur dan bermakna."
+  "Keren! 💗 Jawabanmu jujur dan bermakna.",
+  "Wah, menarik! ✨ Terus lanjut ya.",
+  "Mantap! 🌷 Satu langkah lagi untuk dirimu.",
+  "Hebat! 💎 Kamu sedang berkembang.",
+  "Luar biasa! 🌟 Terus jadi dirimu sendiri."
 ];
 
 // 🎉 TRANSISI LEVEL
@@ -139,7 +143,6 @@ let user = {
 let currentLevel = 1;
 let currentQuestion = 0;
 let selectedOption = null;
-let lastEncouragementIndex = -1;
 
 // ============================================
 // 🎵 MUSIK
@@ -289,9 +292,8 @@ function renderQuestion() {
     container.appendChild(btn);
   });
 
-  const fb = document.getElementById("feedback");
-  fb.classList.remove("show");
-  fb.innerHTML = "";
+  document.getElementById("feedback").classList.remove("show");
+  document.getElementById("feedback").innerHTML = "";
   selectedOption = null;
 }
 
@@ -308,14 +310,10 @@ function selectOption(btn, index) {
 
   user.answers[currentLevel][currentQuestion] = index;
 
-  // Ambil kata penyemangat (hanya 2 pilihan, gantian)
-  lastEncouragementIndex = (lastEncouragementIndex + 1) % encouragements.length;
-  const msg = encouragements[lastEncouragementIndex];
-
   const fb = document.getElementById("feedback");
   fb.innerHTML = `
     <div style="margin-bottom:10px;">
-      ${msg}
+      ${encouragements[Math.floor(Math.random() * encouragements.length)]}
     </div>
     <button class="btn-next-q" onclick="nextQuestion()">
       LANJUT <span class="btn-emoji">→</span>
@@ -522,7 +520,6 @@ function restartJourney() {
   currentLevel = 1;
   currentQuestion = 0;
   selectedOption = null;
-  lastEncouragementIndex = -1;
 
   document.querySelectorAll("input, textarea").forEach(el => el.value = "");
   document.getElementById("inputGoal").selectedIndex = 0;
