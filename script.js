@@ -180,7 +180,6 @@ function selectAnswer(index) {
 
   document.querySelectorAll(".option-btn").forEach((b) => (b.disabled = true));
 
-  // Tampilkan reward inline (langsung di bawah, bukan pop-up)
   const reward = document.getElementById("reward-inline");
   document.getElementById("reward-text").textContent =
     REWARD_WORDS[Math.floor(Math.random() * REWARD_WORDS.length)];
@@ -199,7 +198,7 @@ function selectAnswer(index) {
     } else {
       finishLevel();
     }
-  }, 2200);
+  }, 6000);
 }
 
 function updateProgress() {
