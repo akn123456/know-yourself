@@ -9,13 +9,91 @@
 </head>
 <body>
 
-  <!-- 🎵 Tombol Musik Fixed -->
-  <button id="music-toggle" class="music-btn" title="Musik">🔇</button>
+  <!-- 🎵 Tombol Musik + 📖 Tombol Panduan (Fixed pojok kanan atas) -->
+  <div class="top-bar">
+    <button id="guide-toggle" class="top-btn" title="Panduan">📖</button>
+    <button id="music-toggle" class="top-btn" title="Musik">🔇</button>
+  </div>
+
+  <!-- 📖 Modal Panduan -->
+  <div id="guide-modal" class="modal hidden">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeGuide()">✕</button>
+      <h2 class="modal-title">📖 Panduan Penggunaan</h2>
+
+      <div class="guide-item">
+        <span class="guide-icon">🌸</span>
+        <div>
+          <h3>1. Mulai Perjalanan</h3>
+          <p>Klik tombol <strong>"MULAI PERJALANAN"</strong> di halaman beranda untuk memulai.</p>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <span class="guide-icon">🌷</span>
+        <div>
+          <h3>2. Isi Profil Singkat</h3>
+          <p>Isi nama, nama panggilan, hobi, hal yang disukai, dan harapanmu. Tidak perlu jawaban sempurna — cukup jadi dirimu sendiri. 💗</p>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <span class="guide-icon">💎</span>
+        <div>
+          <h3>3. Kumpulkan Gems</h3>
+          <p>Setiap kali menyelesaikan satu level, kamu akan mendapatkan <strong>gems</strong> sebagai hadiah. Total ada 4 level, masing-masing 5 pertanyaan.</p>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <span class="guide-icon">🌱</span>
+        <div>
+          <h3>4. Naik Level</h3>
+          <p>Setelah menyelesaikan satu level, kamu akan otomatis naik ke level berikutnya. Ada animasi & kata-kata penyemangat di setiap jawaban.</p>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <span class="guide-icon">🪞</span>
+        <div>
+          <h3>5. Refleksi Diri</h3>
+          <p>Setelah semua level selesai, kamu akan diajak menjawab 5 pertanyaan refleksi terbuka. Jawab dengan jujur ya.</p>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <span class="guide-icon">💌</span>
+        <div>
+          <h3>6. Lihat Hasil Perjalanan</h3>
+          <p>Di akhir, kamu bisa melihat rangkuman perjalananmu — profil, gems, level, dan refleksi diri.</p>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <span class="guide-icon">🎵</span>
+        <div>
+          <h3>7. Musik Latar</h3>
+          <p>Klik tombol 🎵 di pojok kanan atas untuk menyalakan/mematikan musik.</p>
+        </div>
+      </div>
+
+      <div class="guide-item">
+        <span class="guide-icon">🔄</span>
+        <div>
+          <h3>8. Ulangi Perjalanan</h3>
+          <p>Di halaman hasil, ada tombol <strong>"Ulangi Perjalanan"</strong> kalau kamu mau mulai dari awal.</p>
+        </div>
+      </div>
+
+      <p class="guide-closing">💗 Selamat menikmati perjalanan mengenal dirimu!</p>
+    </div>
+  </div>
+
   <audio id="bg-music" loop>
     <source src="music.mp3" type="audio/mpeg" />
   </audio>
 
-  <!-- 🌸 Floating Petals Background -->
+  <!-- 🌸 Floating Petals -->
   <div class="petals" id="petals"></div>
 
   <!-- ======================= -->
@@ -23,79 +101,6 @@
   <!-- ======================= -->
   <section id="page-home" class="page active">
     <div class="home-wrapper">
-
-      <!-- KIRI: Panduan -->
-      <div class="guide-panel">
-        <h2 class="guide-title">📖 Panduan Penggunaan</h2>
-
-        <div class="guide-item">
-          <span class="guide-icon">🌸</span>
-          <div>
-            <h3>1. Mulai Perjalanan</h3>
-            <p>Klik tombol <strong>"MULAI PERJALANAN"</strong> di halaman beranda untuk memulai.</p>
-          </div>
-        </div>
-
-        <div class="guide-item">
-          <span class="guide-icon">🌷</span>
-          <div>
-            <h3>2. Isi Profil Singkat</h3>
-            <p>Isi nama, nama panggilan, hobi, hal yang disukai, dan harapanmu. Tidak perlu jawaban sempurna — cukup jadi dirimu sendiri. 💗</p>
-          </div>
-        </div>
-
-        <div class="guide-item">
-          <span class="guide-icon">💎</span>
-          <div>
-            <h3>3. Kumpulkan Gems</h3>
-            <p>Setiap kali menyelesaikan satu level, kamu akan mendapatkan <strong>gems</strong> sebagai hadiah. Total ada 4 level, masing-masing 5 pertanyaan.</p>
-          </div>
-        </div>
-
-        <div class="guide-item">
-          <span class="guide-icon">🌱</span>
-          <div>
-            <h3>4. Naik Level</h3>
-            <p>Setelah menyelesaikan satu level, kamu akan otomatis naik ke level berikutnya. Ada animasi & kata-kata penyemangat di setiap jawaban.</p>
-          </div>
-        </div>
-
-        <div class="guide-item">
-          <span class="guide-icon">🪞</span>
-          <div>
-            <h3>5. Refleksi Diri</h3>
-            <p>Setelah semua level selesai, kamu akan diajak menjawab 5 pertanyaan refleksi terbuka. Jawab dengan jujur ya.</p>
-          </div>
-        </div>
-
-        <div class="guide-item">
-          <span class="guide-icon">💌</span>
-          <div>
-            <h3>6. Lihat Hasil Perjalanan</h3>
-            <p>Di akhir, kamu bisa melihat rangkuman perjalananmu — profil, gems, level, dan refleksi diri.</p>
-          </div>
-        </div>
-
-        <div class="guide-item">
-          <span class="guide-icon">🎵</span>
-          <div>
-            <h3>7. Musik Latar</h3>
-            <p>Klik tombol 🎵 di pojok kanan atas untuk menyalakan/mematikan musik.</p>
-          </div>
-        </div>
-
-        <div class="guide-item">
-          <span class="guide-icon">🔄</span>
-          <div>
-            <h3>8. Ulangi Perjalanan</h3>
-            <p>Di halaman hasil, ada tombol <strong>"Ulangi Perjalanan"</strong> kalau kamu mau mulai dari awal.</p>
-          </div>
-        </div>
-
-        <p class="guide-closing">💗 Selamat menikmati perjalanan mengenal dirimu!</p>
-      </div>
-
-      <!-- KANAN: Logo & Tombol -->
       <div class="hero-panel">
         <div class="logo-wrap">
           <h1 class="logo-text">Know<span>Yourself</span></h1>
@@ -105,8 +110,8 @@
           Sebuah perjalanan kecil untuk mengenal perasaan, diri, cara menghadapi situasi, dan potensimu. 💗
         </p>
         <button class="btn-primary" onclick="goToProfile()">MULAI PERJALANAN 🌸</button>
+        <p class="home-hint">Klik 📖 di pojok kanan atas untuk melihat panduan</p>
       </div>
-
     </div>
   </section>
 
@@ -159,8 +164,7 @@
         <div class="stat-box">💎 <span id="gems-display">0</span> Gems</div>
         <div class="stat-box">🌱 Level <span id="level-display">1</span></div>
       </div>
-      <p class="hint-blue">⏳ Baca dulu ya... beberapa detik lagi...</p>
-      <button id="btn-ayo" class="btn-primary hidden" onclick="startLevel(1)">AYO MULAI →</button>
+      <button id="btn-ayo" class="btn-primary" onclick="startLevel(1)">AYO MULAI →</button>
     </div>
   </section>
 
@@ -196,8 +200,7 @@
       <h2 id="levelup-title">🎉 Keren!</h2>
       <p id="levelup-text">Kamu berhasil mencapai level berikutnya!</p>
       <div class="reward-gems">+25 💎 Gems</div>
-      <p class="hint-blue">⏳ Sebentar ya...</p>
-      <button id="btn-next-level" class="btn-primary hidden" onclick="nextLevel()">LANJUT →</button>
+      <button id="btn-next-level" class="btn-primary" onclick="nextLevel()">LANJUT →</button>
     </div>
   </section>
 
