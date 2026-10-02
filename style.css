@@ -7,8 +7,8 @@
 :root {
   --kuning: #FFD966;
   --kuning-soft: #FFF1B8;
-  --biru: #FFC9A8;           /* 🎨 peach hangat (pengganti biru) */
-  --biru-soft: #FFE6D4;      /* 🎨 peach soft */
+  --biru: #A7D8F0;
+  --biru-soft: #DDEEFB;
   --pink: #FFB6C1;
   --pink-soft: #FFE0E9;
   --ungu: #C9A7EB;
@@ -22,7 +22,7 @@ html, body { scroll-behavior: smooth; }
 
 body {
   font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(135deg, #FFF9FB 0%, #FFE9F3 35%, #EFE5FF 70%, #FFE6D4 100%);
+  background: linear-gradient(135deg, #FFF9FB 0%, #FFE9F3 35%, #EFE5FF 70%, #E9F3FF 100%);
   background-attachment: fixed;
   color: var(--teks);
   min-height: 100vh;
@@ -326,33 +326,6 @@ textarea { min-height: 90px; resize: vertical; }
 }
 .btn-primary:hover .btn-emoji { transform: scale(1.25) rotate(-10deg); }
 
-/* Tombol Lanjut di feedback */
-.btn-next-q {
-  margin-top: 10px;
-  width: 100%;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 12px;
-  background: linear-gradient(120deg, var(--kuning), var(--pink), var(--ungu));
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 6px 16px rgba(201, 167, 235, 0.35);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.btn-next-q:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(201, 167, 235, 0.5);
-}
-.btn-next-q .btn-emoji {
-  margin-left: 6px;
-  display: inline-block;
-  transition: transform 0.3s;
-}
-.btn-next-q:hover .btn-emoji { transform: translateX(4px); }
-
 /* ============================================
    📊 STATS
    ============================================ */
@@ -531,10 +504,9 @@ textarea { min-height: 90px; resize: vertical; }
   margin-bottom: 20px;
 }
 .analysis-text strong {
-  color: #E85D9E;
-  font-weight: 700;
-  background: none;
-  padding: 0;
+  color: var(--ungu); font-weight: 700;
+  background: linear-gradient(180deg, transparent 60%, rgba(255, 217, 102, 0.5) 60%);
+  padding: 0 2px;
 }
 
 .analysis-note {
@@ -606,7 +578,7 @@ textarea { min-height: 90px; resize: vertical; }
   position: relative; overflow: hidden;
 }
 .reward-card.gems  { background: linear-gradient(135deg, #FFF1B8 0%, #FFE0E9 100%); }
-.reward-card.level { background: linear-gradient(135deg, #FFE6D4 0%, #EBDDFB 100%); }
+.reward-card.level { background: linear-gradient(135deg, #DDEEFB 0%, #EBDDFB 100%); }
 .reward-card .reward-icon {
   font-size: 30px; display: block; margin-bottom: 6px;
   animation: float 3s ease-in-out infinite;
@@ -724,126 +696,32 @@ textarea { min-height: 90px; resize: vertical; }
 }
 
 /* ============================================
-   📱 RESPONSIVE — HP (≤ 600px)
+   📱 RESPONSIVE
    ============================================ */
 @media (max-width: 600px) {
-  body { padding: 0; }
+  .logo-big { max-width: 240px; }
+  .card { padding: 28px 22px; border-radius: 22px; }
+  .card h2 { font-size: 1.3rem; }
+  .stats { flex-direction: column; gap: 10px; align-items: center; }
+  .stat { padding: 10px 20px; font-size: 0.95rem; }
+  .btn-primary { font-size: 0.98rem; padding: 15px; }
+  #questionText { font-size: 1.02rem; }
+  .option { padding: 13px 16px; font-size: 0.94rem; }
 
-  .logo-big { max-width: 220px; }
-  .home-hint { font-size: 0.85rem; padding: 0 16px; }
-
-  .card {
-    padding: 26px 20px;
-    border-radius: 22px;
-    margin: 0 12px;
-    max-width: calc(100vw - 24px);
-  }
-  .card h2 { font-size: 1.25rem; }
-  .card .sub { font-size: 0.9rem; }
-
-  input, select, textarea {
-    padding: 12px 14px;
-    font-size: 0.95rem;
-  }
-  label { font-size: 0.9rem; margin-top: 14px; }
-
-  .btn-primary {
-    font-size: 0.95rem;
-    padding: 14px;
-    margin-top: 22px;
-  }
-  .btn-emoji { font-size: 1rem; }
-
-  .stats {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px;
-    justify-content: center;
-  }
-  .stat {
-    padding: 8px 16px;
-    font-size: 0.88rem;
-  }
-
-  #questionText {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 18px;
-  }
-  .option {
-    padding: 12px 14px;
-    font-size: 0.9rem;
-    line-height: 1.4;
-  }
-  .level-label { font-size: 0.88rem; }
-
-  .feedback {
-    font-size: 0.9rem;
-    padding: 14px 16px;
-  }
-
-  .icon-btn {
-    width: 42px; height: 42px; font-size: 17px;
-    top: 12px;
-  }
-  .music-btn { right: 12px; }
-  .guide-btn { right: 62px; }
+  .icon-btn { width: 44px; height: 44px; font-size: 18px; top: 14px; }
+  .music-btn { right: 14px; }
+  .guide-btn { right: 66px; }
 
   .guide-panel { width: 100vw; max-width: 100vw; }
-  .guide-body { padding: 16px 18px; }
-  .guide-step { padding: 12px 14px; }
-  .guide-step-num { width: 32px; height: 32px; font-size: 0.85rem; }
-  .guide-step-content h4 { font-size: 0.9rem; }
-  .guide-step-content p { font-size: 0.82rem; }
+  .guide-body { padding: 18px 20px; }
 
-  .sparkles span { font-size: 13px; }
+  .sparkles span { font-size: 14px; }
 
   .profile-grid { grid-template-columns: 1fr; }
-  .reward-row { grid-template-columns: 1fr 1fr; }
-  .result-hero h3 { font-size: 1.2rem; }
-  .result-hero p { font-size: 0.88rem; }
-  .reward-card .reward-value { font-size: 1.25rem; }
-  .reward-card { padding: 14px 10px; }
-  .reward-card .reward-icon { font-size: 26px; }
-
-  .analysis-text { font-size: 0.92rem !important; line-height: 1.65 !important; }
-  .analysis-label { font-size: 0.78rem; letter-spacing: 1.5px; }
-  .analysis-note { padding: 12px 14px; }
-  .analysis-note p { font-size: 0.84rem !important; }
-  .note-label { font-size: 0.72rem; }
-
-  .result-section-title { font-size: 0.98rem; margin: 22px 0 12px; }
-  .profile-item { padding: 10px 14px; }
-  .profile-item .label { font-size: 0.72rem; }
-  .profile-item .value { font-size: 0.9rem; }
-
-  .reflection-card {
-    padding: 14px 16px 14px 46px;
-    font-size: 0.9rem;
-  }
-  .reflection-card::before {
-    width: 24px; height: 24px; font-size: 0.75rem;
-    left: 12px; top: 12px;
-  }
-
-  .result-closing { padding: 18px 16px; font-size: 0.92rem; }
+  .reward-row { grid-template-columns: 1fr; }
+  .result-hero h3 { font-size: 1.25rem; }
+  .reward-card .reward-value { font-size: 1.3rem; }
 
   .closing-heart { font-size: 52px; }
   .closing-title { font-size: 1.15rem; }
-  .closing-text { font-size: 0.92rem; }
-  .closing-quote { font-size: 0.84rem; padding: 16px 18px; }
-  .signature { font-size: 0.78rem; }
-}
-
-/* ============================================
-   📱 RESPONSIVE — Layar sangat kecil (≤ 380px)
-   ============================================ */
-@media (max-width: 380px) {
-  .card { padding: 22px 16px; }
-  .logo-big { max-width: 180px; }
-  .icon-btn { width: 38px; height: 38px; font-size: 15px; }
-  .music-btn { right: 10px; }
-  .guide-btn { right: 54px; }
-  .stat { padding: 6px 12px; font-size: 0.82rem; }
-  .option { padding: 11px 12px; font-size: 0.86rem; }
 }
