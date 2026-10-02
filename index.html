@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Know Yourself — A Little Step to a Better You</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
   <!-- 🎵 Tombol Musik Fixed -->
   <button id="music-toggle" class="music-btn" title="Musik">🔇</button>
   <audio id="bg-music" loop>
-    <!-- Ganti src dengan file musik soft instrumental milikmu -->
     <source src="music.mp3" type="audio/mpeg" />
   </audio>
 
@@ -23,15 +22,91 @@
   <!-- 1. HALAMAN BERANDA      -->
   <!-- ======================= -->
   <section id="page-home" class="page active">
-    <div class="home-card">
-      <div class="logo-wrap">
-        <h1 class="logo-text">Know<span>Yourself</span></h1>
-        <p class="tagline">— A little step to a better you —</p>
+    <div class="home-wrapper">
+
+      <!-- KIRI: Panduan -->
+      <div class="guide-panel">
+        <h2 class="guide-title">📖 Panduan Penggunaan</h2>
+
+        <div class="guide-item">
+          <span class="guide-icon">🌸</span>
+          <div>
+            <h3>1. Mulai Perjalanan</h3>
+            <p>Klik tombol <strong>"MULAI PERJALANAN"</strong> di halaman beranda untuk memulai.</p>
+          </div>
+        </div>
+
+        <div class="guide-item">
+          <span class="guide-icon">🌷</span>
+          <div>
+            <h3>2. Isi Profil Singkat</h3>
+            <p>Isi nama, nama panggilan, hobi, hal yang disukai, dan harapanmu. Tidak perlu jawaban sempurna — cukup jadi dirimu sendiri. 💗</p>
+          </div>
+        </div>
+
+        <div class="guide-item">
+          <span class="guide-icon">💎</span>
+          <div>
+            <h3>3. Kumpulkan Gems</h3>
+            <p>Setiap kali menyelesaikan satu level, kamu akan mendapatkan <strong>gems</strong> sebagai hadiah. Total ada 4 level, masing-masing 5 pertanyaan.</p>
+          </div>
+        </div>
+
+        <div class="guide-item">
+          <span class="guide-icon">🌱</span>
+          <div>
+            <h3>4. Naik Level</h3>
+            <p>Setelah menyelesaikan satu level, kamu akan otomatis naik ke level berikutnya. Ada animasi & kata-kata penyemangat di setiap jawaban.</p>
+          </div>
+        </div>
+
+        <div class="guide-item">
+          <span class="guide-icon">🪞</span>
+          <div>
+            <h3>5. Refleksi Diri</h3>
+            <p>Setelah semua level selesai, kamu akan diajak menjawab 5 pertanyaan refleksi terbuka. Jawab dengan jujur ya.</p>
+          </div>
+        </div>
+
+        <div class="guide-item">
+          <span class="guide-icon">💌</span>
+          <div>
+            <h3>6. Lihat Hasil Perjalanan</h3>
+            <p>Di akhir, kamu bisa melihat rangkuman perjalananmu — profil, gems, level, dan refleksi diri.</p>
+          </div>
+        </div>
+
+        <div class="guide-item">
+          <span class="guide-icon">🎵</span>
+          <div>
+            <h3>7. Musik Latar</h3>
+            <p>Klik tombol 🎵 di pojok kanan atas untuk menyalakan/mematikan musik.</p>
+          </div>
+        </div>
+
+        <div class="guide-item">
+          <span class="guide-icon">🔄</span>
+          <div>
+            <h3>8. Ulangi Perjalanan</h3>
+            <p>Di halaman hasil, ada tombol <strong>"Ulangi Perjalanan"</strong> kalau kamu mau mulai dari awal.</p>
+          </div>
+        </div>
+
+        <p class="guide-closing">💗 Selamat menikmati perjalanan mengenal dirimu!</p>
       </div>
-      <p class="home-desc">
-        Sebuah perjalanan kecil untuk mengenal perasaan, diri, cara menghadapi situasi, dan potensimu. 💗
-      </p>
-      <button class="btn-primary" onclick="goToProfile()">MULAI PERJALANAN ✨</button>
+
+      <!-- KANAN: Logo & Tombol -->
+      <div class="hero-panel">
+        <div class="logo-wrap">
+          <h1 class="logo-text">Know<span>Yourself</span></h1>
+          <p class="tagline">— A little step to a better you —</p>
+        </div>
+        <p class="home-desc">
+          Sebuah perjalanan kecil untuk mengenal perasaan, diri, cara menghadapi situasi, dan potensimu. 💗
+        </p>
+        <button class="btn-primary" onclick="goToProfile()">MULAI PERJALANAN 🌸</button>
+      </div>
+
     </div>
   </section>
 
@@ -104,7 +179,6 @@
       <p id="question-text" class="question">Pertanyaan...</p>
       <div id="options" class="options"></div>
 
-      <!-- Pop-up reward per pertanyaan -->
       <div id="reward-popup" class="reward-popup hidden">
         <div class="reward-content">
           <div class="flowers">🌸 💐 ✨ 🌷 💗</div>
