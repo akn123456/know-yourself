@@ -754,136 +754,54 @@ textarea {
 
 /* ============ RESPONSIVE ============ */
 @media (max-width: 600px) {
-    body {
-        padding: 76px 12px 30px;
-        align-items: flex-start;
-    }
-
-    .page {
-        max-width: 100%;
-    }
-
-    .hero-panel {
-        padding: 26px 18px;
-        border-radius: 22px;
-    }
-
-    .logo-img {
-        max-width: 110px;
-    }
-
-    .profile-card,
-    .refleksi-card,
-    .greeting-card,
-    .level-card,
-    .levelup-card,
-    .result-card {
-        padding: 22px 16px;
-        border-radius: 20px;
-    }
-
-    .profile-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .stats {
-        flex-direction: column;
-    }
-
-    .stat-box {
-        min-width: 0;
-    }
-
-    .top-bar {
-        top: 12px;
-        right: 12px;
-        gap: 6px;
-    }
-
-    .top-btn {
-        width: 42px;
-        height: 42px;
-        font-size: 17px;
-    }
-
-    .modal-content {
-        padding: 22px 16px;
-    }
-
-    .modal-title {
-        font-size: 18px;
-    }
-
-    .guide-item {
-        padding: 10px;
-    }
-
-    .guide-icon {
-        width: 30px;
-        height: 30px;
-        font-size: 16px;
-    }
-
-    .level-title {
-        font-size: 16.5px;
-    }
-
-    .question {
-        font-size: 14.5px;
-    }
-
-    .option-btn {
-        font-size: 13px;
-        padding: 12px 14px;
-    }
-
-    .levelup-card h2 {
-        font-size: 18px;
-    }
-
-    .result-card h2 {
-        font-size: 20px;
-    }
-
-    .result-closing {
-        font-size: 13px;
-        padding: 16px;
-    }
+  body {
+    padding: 76px 12px 30px;
+    align-items: center;     
+    min-height: 100vh;
+  }
+  .page {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .hero-panel {
+    padding: 26px 18px;
+    border-radius: 22px;
+  }
+  .logo-img { max-width: 110px; }
+  .profile-card, .refleksi-card, .greeting-card, .level-card,
+  .levelup-card, .result-card {
+    padding: 22px 16px;
+    border-radius: 20px;
+  }
+  .profile-grid { grid-template-columns: 1fr; }
+  .stats { flex-direction: column; }
+  .stat-box { min-width: 0; }
+  .top-bar { top: 12px; right: 12px; gap: 6px; }
+  .top-btn { width: 42px; height: 42px; font-size: 17px; }
+  .modal-content { padding: 22px 16px; }
+  .modal-title { font-size: 18px; }
+  .guide-item { padding: 10px; }
+  .guide-icon { width: 30px; height: 30px; font-size: 16px; }
+  .level-title { font-size: 16.5px; }
+  .question { font-size: 14.5px; }
+  .option-btn { font-size: 13px; padding: 12px 14px; }
+  .levelup-card h2 { font-size: 18px; }
+  .result-card h2 { font-size: 20px; }
+  .result-closing { font-size: 13px; padding: 16px; }
 }
 
 @media (max-width: 360px) {
-    body {
-        padding: 70px 8px 24px;
-    }
-
-    .hero-panel {
-        padding: 22px 14px;
-    }
-
-    .logo-img {
-        max-width: 95px;
-    }
-
-    .profile-card,
-    .refleksi-card,
-    .greeting-card,
-    .level-card,
-    .levelup-card,
-    .result-card {
-        padding: 18px 12px;
-    }
-
-    .btn-primary {
-        font-size: 14px;
-        padding: 13px 20px;
-    }
-
-    .question {
-        font-size: 14px;
-    }
-
-    .option-btn {
-        font-size: 12.5px;
-        padding: 11px 12px;
-    }
+  body {
+    padding: 70px 8px 24px;
+    align-items: center;     
+  }
+  .hero-panel { padding: 22px 14px; }
+  .logo-img { max-width: 95px; }
+  .profile-card, .refleksi-card, .greeting-card, .level-card,
+  .levelup-card, .result-card {
+    padding: 18px 12px;
+  }
+  .btn-primary { font-size: 14px; padding: 13px 20px; }
+  .question { font-size: 14px; }
+  .option-btn { font-size: 12.5px; padding: 11px 12px; }
 }
